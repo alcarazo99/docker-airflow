@@ -109,6 +109,7 @@ fi
 
 case "$1" in
   webserver)
+    airflow users  create --role Admin --username admin --email admin --firstname admin --lastname admin --password admin
     airflow db init
     if [ "$AIRFLOW__CORE__EXECUTOR" = "LocalExecutor" ] || [ "$AIRFLOW__CORE__EXECUTOR" = "SequentialExecutor" ]; then
       # With the "Local" and "Sequential" executors it should all run in one container.
